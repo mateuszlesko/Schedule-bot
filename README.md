@@ -25,7 +25,7 @@ Bot are using commands and only them recognize
 If you want to run this project, then you 'll have
 an Azure service or Bot Emulator v4 (version 4.0.1 +) from link bellow -> https://github.com/Microsoft/BotFramework-Emulator/releases.
 Clone this repository. Run Visual Studio, there create a local database, name it "SchoolSchedule".
-Then with using file from "Database files" named "schema.sql" create structure for database. Use file "Insert Data" and fill DB. Then run project in VS. Run Bot Emulator V4 and choose file "BotConfiguration". That's all ! 
+Then using file from "Database files" named "schema.sql" create structure for database. Use file "Insert Data" and fill DB. Then run project in VS. Run Bot Emulator V4 and choose file "BotConfiguration". That's all ! 
 <h2>Reporting issues</h2>
 Please if you found any problem with this project let me know I would be grateful for that. You can report in sections "Issues" or contact
 to me directly via email <span><b>mateusz.lesko@outlook.com</b></span>
