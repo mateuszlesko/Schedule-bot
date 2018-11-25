@@ -17,7 +17,8 @@ namespace BotV42
             "DailyPlan = return a list of daily school subjects",
             "WeeklyPlan = return a list of weekly school schedule",
             " GetWhenStartSchool = return a start lesson of current day",
-            "GetWhenEndSchool = return an end lesson of current day"
+            "GetWhenEndSchool = return an end lesson of current day",
+            "GetCurrentLesson = return a name of current lesson"
         }; 
         
         public string SeeAllCommands() {
