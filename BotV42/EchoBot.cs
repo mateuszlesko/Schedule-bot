@@ -81,7 +81,7 @@ namespace BotV42
                 //var responseMessage = $"You sent '{turnContext.Activity.Text}'\n";
 
                 var responseMessage = "";
-               
+              
                 //Switch where commands call for execute
                 switch (turnContext.Activity.Text) {
 
@@ -111,6 +111,9 @@ namespace BotV42
                         break;
                     case "GetWhenEndSchool":
                         responseMessage = schedule.GetWhenEndSchool();
+                        break;
+                    case "GetCurrentLesson":
+                        responseMessage = schedule.getCurrentLesson();
                         break;
                 }
                 // Echo back to the user whatever they typed.

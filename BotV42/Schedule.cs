@@ -92,6 +92,36 @@ namespace BotV42
 
             return startHour;
         }
+        public string getCurrentLesson() {
+            TimeSpan tod = DateTime.Now.TimeOfDay;
+            string lesson = "";
+            int nowMins = (int)tod.TotalMinutes;
+            try
+            {
+                using (var context = new SchoolScheduleContext())
+                {
+                    var query = (from l in context.Lessons
+                                 join s in context.Scheduler
+                                 on l.IdLesson equals s.IdFLssn
+                                 join h in context.Shours on s.IdFH equals h.IdHour
+                                 join d in context.DayOfSweek on s.IdFDow equals d.IdDay
+                                 where s.IdFDow == getNumberDayOfWeek()
+                                 where h.MinutesStart <= nowMins
+                                 && h.MinutesEnd > nowMins
+
+                                 select new { name = l.Name }).First().ToString();
+                    lesson = query;
+
+
+
+                }
+            }
+            catch (Exception e) {
+                lesson = "Now you havent got any lessons";
+            }
+          
+            return lesson;
+        }
         /// <summary>
         /// Method getDailyPlan get a school schedule for current day of the week. In result of LINQ query is a list of subjects schedule data.  
         /// </summary>
