@@ -144,12 +144,14 @@ namespace BotV42
             options.Choices.Add(new Choice() { Value = "Current lesson" });
             options.Choices.Add(new Choice() { Value = "Start hour" });
             options.Choices.Add(new Choice() { Value = "End hour " });
+            options.Choices.Add(new Choice() { Value = "All subjects" });
 
             return options;
         }
 
         public static async Task<DialogTurnResult> ShowCardStepAsync(WaterfallStepContext step, CancellationToken cancellationToken)
         {
+            string[] texts = new string[] { "daily", "weekly", "current", "start", "end", "all" };
             var text = step.Context.Activity.Text.ToLowerInvariant().Split(' ')[0];
 
             var reply = step.Context.Activity.CreateReply();
@@ -164,6 +166,23 @@ namespace BotV42
             {
                 reply.Attachments.Add(GetWeeklyPlanCard().ToAttachment());
             }
+            if (text.StartsWith("current")){
+                reply.Attachments.Add(GetCurrentLessonCard().ToAttachment());
+            }
+            if (text.StartsWith("start"))
+            {
+                reply.Attachments.Add(GetStartHourCard().ToAttachment());
+            }
+            if (text.StartsWith("end"))
+            {
+                reply.Attachments.Add(GetEndHourCard().ToAttachment());
+            }
+            if (text.StartsWith("all"))
+            {
+                reply.Attachments.Add(AllSubjectsCard().ToAttachment());
+            }
+            
+            
 
             await step.Context.SendActivityAsync(reply, cancellationToken);
 
@@ -198,5 +217,56 @@ namespace BotV42
             return heroCard;
         }
 
+        private static HeroCard GetCurrentLessonCard()
+        {
+            Schedule s = new Schedule();
+            var heroCard = new HeroCard {
+                Title = "Current subject",
+                Subtitle = s.getCurrentLesson()
+            };
+            return heroCard;
+        }
+
+        private static HeroCard AllSubjectsCard()
+        {
+            Schedule s = new Schedule();
+            var heroCard = new HeroCard
+            {
+                Title = "All of school subjects",
+                Text = s.getAllSubjects()
+            };
+            return heroCard;
+        }
+
+        private static HeroCard GetStartHourCard()
+        {
+            Schedule s = new Schedule();
+            var heroCard = new HeroCard
+            {
+                Title = $"Today is {DateTime.Now.DayOfWeek.ToString()}",
+                Subtitle = $"School starts at {s.GetWhenEndSchool()} am"
+            };
+            return heroCard;
+        }
+
+        private static HeroCard GetEndHourCard()
+        {
+            Schedule s = new Schedule();
+            var heroCard = new HeroCard
+            {
+                Title = $"Today is {DateTime.Now.DayOfWeek.ToString()}",
+                Subtitle = $"School ends at {s.GetWhenEndSchool()} pm"
+            };
+            return heroCard;
+        }
+        private static HeroCard NothingCard()
+        {
+            var heroCard = new HeroCard
+            {
+                Title= $"No action",
+                Subtitle="Type something to continue"
+            };
+            return heroCard;
+        }
 }
 }
