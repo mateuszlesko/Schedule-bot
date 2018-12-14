@@ -3,17 +3,19 @@
 Schedule Bot is a school schedule bot which can tell a must know information when you have been student. 
 I have been following the example of repo shared by Microsoft. Where we can find samples.
  <h2>Features</h2><br>
-<span>Right now MVP version of this bot contains:</span>
+<span>Right now version of this bot contains:</span>
 <ul>
 <li>get weekly plan of school subjects,</li>
 <li>get daily plan of school subjects,</li>
+<li>get current lesson </li>
+<li>lists all of school subjects</li>
 <li> get hour when school starts in current day,</li>
 <li>get hour when school end today</li>
+
 </ul>
 <h2>Commands</h2>
-Bot are using commands and only them recognize
+Bot are using cards with this functions:
 <ul>
-<li><b>help</b> = see all commands </li>
 <li><b>today</b> = return today’s day of week </li>
 <li><b>DailyPlan</b> = see today's school plan</li>
 <li><b>WeeklyPlan</b> = see weekly school plan</li>
