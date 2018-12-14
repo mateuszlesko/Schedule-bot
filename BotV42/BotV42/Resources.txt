@@ -1,0 +1,5 @@
+﻿publish bot on FACEBOOK
+https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-facebook?view=azure-bot-service-4.0
+inner join LINQ
+https://stackoverflow.com/questions/19536064/select-multiple-columns-using-entity-framework
+
