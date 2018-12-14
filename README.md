@@ -1,6 +1,7 @@
 <h2>Schedule-bot</h2>
 <h4>C# bot base of Azure SDK Bot Framework</h4>
 Schedule Bot is a school schedule bot which can tell a must know information when you have been student. 
+I have been following the example of repo shared by Microsoft. Where we can find samples.
  <h2>Features</h2><br>
 <span>Right now MVP version of this bot contains:</span>
 <ul>
