@@ -244,7 +244,7 @@ namespace BotV42
             var heroCard = new HeroCard
             {
                 Title = $"Today is {DateTime.Now.DayOfWeek.ToString()}",
-                Subtitle = $"School starts at {s.GetWhenEndSchool()} am"
+                Subtitle = $"School starts at {s.GetWhenStartSchool()} am"
             };
             return heroCard;
         }
